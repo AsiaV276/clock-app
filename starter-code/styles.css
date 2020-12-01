@@ -39,6 +39,9 @@ body main #quote-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 body main #quote-container p {
@@ -51,8 +54,10 @@ body main #quote-container p:first-of-type {
 }
 
 body main #quote-container #refresh {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+  padding-left: 15px;
+  cursor: pointer;
 }
 
 body main #time-box {
@@ -62,25 +67,39 @@ body main #time-box {
   padding: 20px;
 }
 
-body main #time-box #greeting #sun-icon {
-  display: inline-block;
+body main #time-box #greeting p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-body main #time-box #greeting #moon-icon {
+body main #time-box #greeting p .currently {
   display: none;
 }
 
-body main #time-box #greeting #sun-icon img,
-body main #time-box #greeting #moon-icon img {
-  width: 15px;
+body main #time-box #greeting p #sun-icon {
+  display: inline-block;
+}
+
+body main #time-box #greeting p #moon-icon {
+  display: none;
+}
+
+body main #time-box #greeting p #sun-icon img,
+body main #time-box #greeting p #moon-icon img {
+  width: 25px;
+  padding-right: 15px;
 }
 
 body main #time-box #currentTime {
-  font-size: 100px;
+  font-size: 135px;
 }
 
 body main #time-box p {
-  font-size: 15px;
+  font-size: 17px;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding-bottom: 35px;
@@ -121,14 +140,14 @@ body main #time-box #more-less img {
   width: 30px;
 }
 
-body main #info-box {
+body main #info {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: black;
   padding: 20px;
+  color: #303030;
   width: 100%;
   height: 35vh;
   -ms-flex-pack: distribute;
@@ -138,22 +157,144 @@ body main #info-box {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-body main #info-box p {
-  letter-spacing: 1px;
+body main #info .info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main #info .info-title {
+  letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 12px;
-  color: #303030;
+}
+
+body main #info .info-text {
+  font-size: 25px;
+}
+
+.nighttime {
+  background-image: url("./assets/mobile/bg-image-nighttime.jpg");
 }
 
 @media (min-width: 768px) {
   body {
     background-image: url("./assets/tablet/bg-image-daytime.jpg");
   }
+  body main #quote-container {
+    padding: 90px;
+  }
+  body main #quote-container p {
+    font-size: large;
+    line-height: 35px;
+  }
+  body main #time-box {
+    padding: 90px 0px 0px 90px;
+  }
+  body main #time-box #greeting p #currentTime {
+    font-size: 175px;
+  }
+  body main #time-box #greeting #sun-icon,
+  body main #time-box #greeting #moon-icon {
+    padding-right: 15px;
+  }
+  body main #time-box #greeting #sun-icon img,
+  body main #time-box #greeting #moon-icon img {
+    width: 30px;
+  }
+  body main #time-box #greeting .currently {
+    display: inline-block;
+  }
+  body main #time-box p {
+    font-size: 20px;
+  }
+  body main #time-box #more-less {
+    padding: 6px;
+    border-radius: 45px;
+    margin-bottom: 50px;
+  }
+  body main #time-box #more-less p {
+    font-size: 18px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px 15px 0px 20px;
+  }
+  body main #time-box #more-less img {
+    height: auto;
+    width: 40px;
+  }
+  body main #info {
+    padding: 35px 90px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  body main #info .info-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 49%;
+  }
+  body main #info .info-title {
+    font-size: 15px;
+  }
+  body main #info .info-text {
+    font-size: 40px;
+  }
+  .nighttime {
+    background-image: url("./assets/tablet/bg-image-nighttime.jpg");
+  }
 }
 
 @media (min-width: 1200px) {
   body {
     background-image: url("./assets/desktop/bg-image-daytime.jpg");
+  }
+  body main #quote-container {
+    padding: 90px;
+  }
+  body main #time-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body main #time-box div:first-of-type {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding-bottom: 50px;
+  }
+  body main #time-box #more-less {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-right: 90px;
+  }
+  body main #time-box p {
+    padding-bottom: 0px;
+  }
+  body main #info {
+    height: 40vh;
+    padding: 35px 90px;
+  }
+  .nighttime {
+    background-image: url("./assets/desktop/bg-image-nighttime.jpg");
   }
 }
 /*# sourceMappingURL=styles.css.map */

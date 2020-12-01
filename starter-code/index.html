@@ -21,30 +21,43 @@
       <img src="./assets/desktop/icon-refresh.svg" alt="" id="refresh">
     </div>
     <div id="time-box">
-      <div id="greeting">
-        <p>
-          <span id="sun-icon"><img src="./assets/desktop/icon-sun.svg" alt=""></span>
-          <span id="moon-icon"><img src="./assets/desktop/icon-moon.svg" alt=""></span>
-          <span id="greeting-text"></span>
-           it's currently
-        </p>
+      <div>
+        <div id="greeting">
+          <p>
+            <span id="sun-icon"><img src="./assets/desktop/icon-sun.svg" alt=""></span>
+            <span id="moon-icon"><img src="./assets/desktop/icon-moon.svg" alt=""></span>
+            <span id="greeting-text"></span>
+            <span class="currently">, it's currently</span>
+          </p>
+        </div>
+        <div id="currentTime"></div>
+        <p class="location">in Philadelphia, PA</p>
       </div>
-      
-      <div id="currentTime"></div>
-    
-      <p class="location">in Philadelphia, PA</p>
-    
       <button id="more-less" onclick="toggleBtn()">
         <p>MORE</p>
-        <img id="arrow-icon" src="./assets/desktop/icon-arrow-up.svg" alt=""></button>
+        <img id="arrow-icon" src="./assets/desktop/icon-arrow-up.svg" alt="">
+      </button>
     </div>
     
   
-    <div id="info-box">
-      <p>Current timezone</p>
-      <p>Day of the year</p>
-      <p>Day of the week</p>
-      <p>Week number</p>
+    <div id="info">
+      <div class="info-container">
+        <p class="info-title">Current timezone</p>
+        <p class="info-text">New York</p>
+      </div>
+      <div class="info-container">  
+        <p class="info-title">Day of the year</p>
+        <p class="info-text">295</p>
+      </div>
+      <div class="info-container">
+        <p class="info-title">Day of the week</p>
+        <p class="info-text">5</p>
+      </div>
+      <div class="info-container">
+        <p class="info-title">Week number</p>
+        <p class="info-text">42</p>
+      </div>
+      
     </div>
   </main>
 </body>
