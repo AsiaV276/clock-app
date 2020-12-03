@@ -14,6 +14,22 @@ if(minutes < 10) {
     minutes  = "0" + minutes
 }
 
+// get current location
+const geoFindMe = async () => {
+    await fetch('https://extreme-ip-lookup.com/json/')
+    .then( res => res.json())
+    .then(response => {
+        document.getElementById('location').innerText = 'IN ' + response.city + ', ' + response.region;
+
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+//Call the geoFindMe function
+geoFindMe()
+
 
 const getLocationData = async (json) => {
     //get IP address from api.ipify, script in html, stores json variable on page load
@@ -26,11 +42,9 @@ const getLocationData = async (json) => {
             console.error('Error:', error);
           });
     const ipJson = await response.json();
-    console.log(ipJson);
+
     //adds json data to page
-       
         document.getElementById('timezone').innerHTML = ipJson.location.country + "/" + ipJson.location.region;
-        //document.getElementById('timezone').innerHTML = ipJson.location.timezone;
 }
 
 //display time info in DOM
