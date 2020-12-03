@@ -146,6 +146,11 @@ body main #time-box #more-less p {
 body main #time-box #more-less img {
   height: auto;
   width: 30px;
+  fill: red;
+}
+
+body main #time-box #more-less:hover > img {
+  fill: red;
 }
 
 body main #info {

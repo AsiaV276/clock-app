@@ -1,12 +1,6 @@
+//gets current time, hours
 var d = new Date();
-var dayOfWeek = d.getDay();
 var hour = d.getHours();
-
-//get day of year
-var start = new Date(d.getFullYear(), 0, 0);
-var diff = (d - start) + ((start.getTimezoneOffset() - d.getTimezoneOffset()) * 60 * 1000);
-var oneDay = 1000 * 60 * 60 * 24;
-var dayOfYear = Math.floor(diff / oneDay);
 
 //get and format minutes
 var minutes = d.getMinutes();
@@ -14,47 +8,43 @@ if(minutes < 10) {
     minutes  = "0" + minutes
 }
 
-// get current location
+//Display full time in DOM
+var fullTime = hour + ":" + minutes;
+document.getElementById('currentTime').innerHTML = fullTime;
+
+
+//fetch from api that gets current location, city and region
 const geoFindMe = async () => {
     await fetch('https://extreme-ip-lookup.com/json/')
     .then( res => res.json())
     .then(response => {
+        //displays client location city and region
         document.getElementById('location').innerText = 'IN ' + response.city + ', ' + response.region;
-
     })
     .catch((error) => {
         console.error('Error:', error);
     });
 }
 
-//Call the geoFindMe function
-geoFindMe()
 
-
-const getLocationData = async (json) => {
-    //get IP address from api.ipify, script in html, stores json variable on page load
-    
-    //ip address added to url and url is used to fetch latitude and longitude points
-    const ipAddress = json.ip;
-    const api_url = `/${ipAddress}`;
-    const response = await fetch(api_url)
+//fetch from api that gets timezone, day of week, day of year, weeknumber, and abbreviation
+const getLocationData = async () => {
+    //calls geoFindMe function
+    geoFindMe()
+    const response = await fetch('http://worldtimeapi.org/api/ip')
         .catch((error) => {
             console.error('Error:', error);
           });
-    const ipJson = await response.json();
-
-    //adds json data to page
-        document.getElementById('timezone').innerHTML = ipJson.location.country + "/" + ipJson.location.region;
+    const tzJson = await response.json();
+    //adds time zone data to DOM
+        document.getElementById('timezone').innerHTML = tzJson.timezone;
+        document.getElementById('zone').innerText = tzJson.abbreviation;
+        document.getElementById('day-of-year').innerText = tzJson.day_of_year;
+        document.getElementById('day-of-week').innerText = tzJson.day_of_week;
+        document.getElementById('week-number').innerText = tzJson.week_number;
 }
 
-//display time info in DOM
-document.getElementById('day-of-week').innerText = dayOfWeek;
-document.getElementById('day-of-year').innerText = dayOfYear;
-
-//Display full time in DOM
-var fullTime = hour + ":" + minutes;
-document.getElementById('currentTime').innerHTML = fullTime;
-
+//elements in the DOM changing according to the hour of the day
 if (hour < 12) {
     document.getElementById('greeting-text').innerHTML = 'GOOD MORNING'
 }
@@ -72,6 +62,7 @@ else {
     
 }
 
+//declare variables for elements affected by the toggle button
 var moreInfoBox = document.getElementById('info');
 var toggleBtnText = document.getElementById('more-less').children[0];
 var arrowIcon = document.getElementById('arrow-icon');

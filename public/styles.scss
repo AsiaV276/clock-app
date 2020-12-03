@@ -116,7 +116,11 @@ body {
                 img {
                     height: auto;
                     width: 30px;
+                    fill: red;
                 }
+            }
+            #more-less:hover > img {
+                fill: red;
             }
         }
 
