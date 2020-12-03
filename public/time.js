@@ -31,7 +31,7 @@ const geoFindMe = async () => {
 const getLocationData = async () => {
     //calls geoFindMe function
     geoFindMe()
-    const response = await fetch('http://worldtimeapi.org/api/ip')
+    const response = await fetch('https://worldtimeapi.org/api/ip')
         .catch((error) => {
             console.error('Error:', error);
           });
