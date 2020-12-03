@@ -1,0 +1,280 @@
+//media query breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
+$lightblack: #303030;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-image: url('./assets/mobile/bg-image-daytime.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    color: #FFFFFF;
+    box-sizing: border-box;
+
+    main {
+        background-color: rgba($color: #000000, $alpha: 0.35);
+        height: inherit;
+        width: inherit;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        #quote-container {
+            margin-bottom: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            p {
+                font-size: 14px;
+                line-height: 30px;
+            }
+            p:first-of-type {
+                padding-bottom: 10px;
+            }
+            #refresh {
+                width: 20px;
+                height: 20px;
+                padding-left: 15px;
+                cursor: pointer;
+            }
+        }
+
+        #time-box {
+            height: fit-content;
+            padding: 20px;
+
+            #greeting {
+                p {
+                    display: flex;
+                    align-items: center;
+
+                    .currently {
+                        display: none;
+                    }
+                    #sun-icon {
+                        display: inline-block;
+                    }
+                    #moon-icon {
+                        display: none;
+                    }
+                    #sun-icon,
+                    #moon-icon {
+                        img {
+                            width: 25px;
+                            padding-right: 15px;
+                        }
+                    }
+                }
+            }
+    
+            p {
+                font-size: 17px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                padding-bottom: 35px;
+            }
+            
+            .time-text {
+                padding-bottom: 0px;
+                #currentTime {
+                    font-size: 115px; 
+                }
+                #zone {
+                    padding-left: 20px;
+                }
+            }
+
+            #more-less {
+                display: inline-flex;
+                text-align: center;
+                align-content: center;
+                justify-content: center;
+                margin: 35px 0px 15px 0px;
+                padding: 3px;
+                color: $lightblack;
+                text-transform: uppercase;
+                background-color: #FFFFFF;
+                border: none;
+                border-radius: 30px;
+                width: auto;
+                height: auto;
+                cursor: pointer;
+    
+                p { 
+                    font-size: 12px;
+                    align-items: center;
+                    padding: 6px 10px 0px 20px;
+                }
+                img {
+                    height: auto;
+                    width: 30px;
+                }
+            }
+        }
+
+        #info {
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            color: $lightblack;
+            width: 100%;
+            height: 35vh;
+            justify-content: space-around;
+            box-sizing: border-box;
+            background-color: rgba($color: #FFFFFF, $alpha: .75);
+    
+            .info-container {
+                display: flex;
+                justify-content: space-between;
+            }
+            .info-title {
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+            .info-text {
+                font-size: 25px;
+            }
+        }
+    }
+}
+.nighttime {
+    background-image: url('./assets/mobile/bg-image-nighttime.jpg');
+}
+
+
+@media  (min-width: $breakpoint-tablet) {
+    body {
+        background-image: url('./assets/tablet/bg-image-daytime.jpg');
+        
+        main {
+            #quote-container {
+                padding: 75px 75px 0px 75px;
+                p {
+                    font-size: large;
+                    line-height: 35px;
+                }
+            }
+            #time-box {
+                padding: 75px 0px 0px 75px;
+                #greeting {
+                    #sun-icon,
+                    #moon-icon {
+                        padding-right: 15px;
+                        img {
+                            width: 30px;
+                        }
+                    }
+                    p {
+                        .currently {
+                            display: inline-block;
+                        }
+                    }
+                    
+                }
+                p {
+                    font-size: 20px;
+
+                    #currentTime {
+                        font-size: 135px;
+                    }
+                }
+            
+                #more-less {
+                    padding: 4px;
+                    border-radius: 45px;
+                    margin-bottom: 50px;
+                    p { 
+                        font-size: 16px;
+                        align-items: center;
+                        padding: 5px 10px 0px 15px;
+                        #zone {
+                            font-size: 25px;
+                        }
+                    }
+                    img {
+                        height: auto;
+                        width: 30px;
+                    }
+                }
+            }
+            #info {
+                padding: 35px 75px;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                .info-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 49%;
+                }
+                .info-title {
+                    font-size: 15px;
+                }
+                .info-text {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+    .nighttime {
+        background-image: url('./assets/tablet/bg-image-nighttime.jpg');
+    }
+}
+
+@media (min-width: $breakpoint-desktop) {
+    body {
+        background-image: url('./assets/desktop/bg-image-daytime.jpg');
+        
+        main {
+            #quote-container {
+                padding: 90px;
+            }
+            #time-box {
+                display: flex;
+                div:first-of-type {
+                    flex-grow: 1;
+                    padding-bottom: 50px;
+                }
+                #more-less {
+                    align-self: flex-end;
+                    height: fit-content;
+                    margin-right: 90px;
+                    padding: 6px;
+                    border-radius: 45px;
+                    margin-bottom: 50px;
+                    p { 
+                        font-size: 18px;
+                        align-items: center;
+                        padding: 10px 15px 0px 20px;
+                    }
+                    img {
+                        height: auto;
+                        width: 40px;
+                    }
+                }
+                p {
+                    padding-bottom: 0px;
+                }
+            }
+            #info {
+                height: 40vh;
+                padding: 35px 90px;
+            }
+        }
+        
+    }
+    .nighttime {
+        background-image: url('./assets/desktop/bg-image-nighttime.jpg');
+    }
+}
+    

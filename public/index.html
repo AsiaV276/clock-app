@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Clock App</title>
+</head>
+<body>
+  <main>
+    <div id="quote-container">
+      <div class="">
+        <p>
+          “The science of operations, as derived from mathematics more especially, 
+          is a science of itself, and has its own abstract truth and value.”
+        </p>
+        <p>Ada Lovelace</p>
+      </div>
+      <img src="./assets/desktop/icon-refresh.svg" alt="" id="refresh">
+    </div>
+    <div id="time-box">
+      <div>
+        <div id="greeting">
+          <p>
+            <span id="sun-icon"><img src="./assets/desktop/icon-sun.svg" alt=""></span>
+            <span id="moon-icon"><img src="./assets/desktop/icon-moon.svg" alt=""></span>
+            <span id="greeting-text"></span>
+            <span class="currently">, it's currently</span>
+          </p>
+        </div>
+        <p class="time-text"><span id="currentTime"></span><span id="zone">EST</span></p>
+        <p class="location">in Philadelphia, PA</p>
+      </div>
+      <button id="more-less" onclick="toggleBtn()">
+        <p>MORE</p>
+        <img id="arrow-icon" src="./assets/desktop/icon-arrow-up.svg" alt="">
+      </button>
+    </div>
+    
+  
+    <div id="info">
+      <div class="info-container">
+        <p class="info-title">Current timezone</p>
+        <p class="info-text" id="timezone"></p>
+      </div>
+      <div class="info-container">  
+        <p class="info-title">Day of the year</p>
+        <p class="info-text" id="day-of-year"></p>
+      </div>
+      <div class="info-container">
+        <p class="info-title">Day of the week</p>
+        <p class="info-text"  id="day-of-week"></p>
+      </div>
+      <div class="info-container">
+        <p class="info-title">Week number</p>
+        <p class="info-text" id="week-number"></p>
+      </div>
+      
+    </div>
+  </main>
+</body>
+<script src="time.js"></script>
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getLocationData"></script>
+</html>

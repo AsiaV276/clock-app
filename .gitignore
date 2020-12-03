@@ -15,3 +15,6 @@
 .DS_Store
 
 .prettierignore
+
+#api keys
+.env
