@@ -45,16 +45,22 @@ body main #quote-container {
 }
 
 body main #quote-container .quotes {
-  padding-right: 25px;
+  padding-right: 15px;
 }
 
-body main #quote-container p {
-  font-size: 14px;
+body main #quote-container .quotes #quote,
+body main #quote-container .quotes #name {
+  font-size: 18px;
   line-height: 30px;
 }
 
-body main #quote-container p:first-of-type {
+body main #quote-container .quotes #quote {
   padding-bottom: 10px;
+  width: 75vw;
+}
+
+body main #quote-container .quotes #name {
+  font-weight: 600;
 }
 
 body main #quote-container #refresh {
@@ -169,12 +175,12 @@ body main #time-box #more-less {
   cursor: pointer;
 }
 
-body main #time-box #more-less p {
-  font-size: 14px;
+body main #time-box #more-less span {
+  font-size: 16px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 6px 10px 0px 20px;
+  padding: 5px 10px 0px 20px;
 }
 
 body main #time-box #more-less #arrow-icon {
@@ -262,10 +268,6 @@ body main #info .info-text {
     margin-bottom: 50px;
   }
   body main #time-box #more-less p {
-    font-size: 16px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     padding: 5px 10px 0px 15px;
   }
   body main #time-box #more-less p #zone {
@@ -340,9 +342,6 @@ body main #info .info-text {
   }
   body main #time-box #more-less p {
     font-size: 18px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     padding: 10px 15px 0px 20px;
   }
   body main #time-box #more-less img {

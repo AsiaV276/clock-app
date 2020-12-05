@@ -33,14 +33,19 @@ body {
             display: flex;
             justify-content: space-between;
             .quotes {
-                padding-right: 25px;
-            }
-            p {
-                font-size: 14px;
-                line-height: 30px;
-            }
-            p:first-of-type {
-                padding-bottom: 10px;
+                padding-right: 15px;
+                #quote,
+                #name {
+                    font-size: 18px;
+                    line-height: 30px;
+                }
+                #quote {
+                    padding-bottom: 10px;
+                    width: 75vw;
+                }
+                #name {
+                    font-weight: 600;
+                }
             }
             #refresh {
                 width: 20px;
@@ -122,10 +127,10 @@ body {
                 height: auto;
                 cursor: pointer;
     
-                p { 
-                    font-size: 14px;
+                span { 
+                    font-size: 16px;
                     align-items: center;
-                    padding: 6px 10px 0px 20px;
+                    padding: 5px 10px 0px 20px;
                 }
                 #arrow-icon {
                     height: auto;
@@ -213,8 +218,6 @@ body {
                     border-radius: 45px;
                     margin-bottom: 50px;
                     p { 
-                        font-size: 16px;
-                        align-items: center;
                         padding: 5px 10px 0px 15px;
                         #zone {
                             font-size: 25px;
@@ -277,7 +280,6 @@ body {
                     margin-bottom: 50px;
                     p { 
                         font-size: 18px;
-                        align-items: center;
                         padding: 10px 15px 0px 20px;
                     }
                     img {
