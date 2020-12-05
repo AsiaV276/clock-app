@@ -44,6 +44,10 @@ body main #quote-container {
           justify-content: space-between;
 }
 
+body main #quote-container .quotes {
+  padding-right: 25px;
+}
+
 body main #quote-container p {
   font-size: 14px;
   line-height: 30px;
@@ -56,8 +60,34 @@ body main #quote-container p:first-of-type {
 body main #quote-container #refresh {
   width: 20px;
   height: 20px;
-  padding-left: 15px;
   cursor: pointer;
+}
+
+body main #quote-container .rotation {
+  -webkit-animation: rotation 1.5s;
+          animation: rotation 1.5s;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
 }
 
 body main #time-box {
@@ -65,6 +95,9 @@ body main #time-box {
   height: -moz-fit-content;
   height: fit-content;
   padding: 20px;
+  /*#more-less:hover > img {
+                //fill: gray;
+            }*/
 }
 
 body main #time-box #greeting p {
@@ -111,6 +144,7 @@ body main #time-box .time-text #currentTime {
 
 body main #time-box .time-text #zone {
   padding-left: 20px;
+  font-size: 25px;
 }
 
 body main #time-box #more-less {
@@ -124,7 +158,7 @@ body main #time-box #more-less {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 35px 0px 15px 0px;
-  padding: 3px;
+  padding: 5px;
   color: #303030;
   text-transform: uppercase;
   background-color: #FFFFFF;
@@ -136,21 +170,16 @@ body main #time-box #more-less {
 }
 
 body main #time-box #more-less p {
-  font-size: 12px;
+  font-size: 14px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 6px 10px 0px 20px;
 }
 
-body main #time-box #more-less img {
+body main #time-box #more-less #arrow-icon {
   height: auto;
   width: 30px;
-  fill: red;
-}
-
-body main #time-box #more-less:hover > img {
-  fill: red;
 }
 
 body main #info {
@@ -218,14 +247,17 @@ body main #info .info-text {
   body main #time-box #greeting p .currently {
     display: inline-block;
   }
-  body main #time-box p {
+  body main #time-box .time-text {
     font-size: 20px;
   }
-  body main #time-box p #currentTime {
-    font-size: 135px;
+  body main #time-box .time-text #currentTime {
+    font-size: 150px;
+  }
+  body main #time-box .time-text #zone {
+    font-size: 30px;
   }
   body main #time-box #more-less {
-    padding: 4px;
+    padding: 6px;
     border-radius: 45px;
     margin-bottom: 50px;
   }
@@ -244,13 +276,13 @@ body main #info .info-text {
     width: 30px;
   }
   body main #info {
-    padding: 35px 75px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    height: 45vh;
   }
   body main #info .info-container {
     display: -webkit-box;
@@ -263,7 +295,8 @@ body main #info .info-text {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 49%;
+    padding: 0px 20px 0px 20px;
+    width: 40%;
   }
   body main #info .info-title {
     font-size: 15px;
@@ -320,7 +353,7 @@ body main #info .info-text {
     padding-bottom: 0px;
   }
   body main #info {
-    height: 40vh;
+    height: 45vh;
     padding: 35px 90px;
   }
   .nighttime {
