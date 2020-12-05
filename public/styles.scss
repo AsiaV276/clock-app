@@ -48,7 +48,7 @@ body {
                 cursor: pointer;
             }
             .rotation {
-                animation: rotation 1.5s;
+                animation: rotation 0.5s;
             }
             @keyframes rotation {
                 from {
@@ -98,7 +98,7 @@ body {
             .time-text {
                 padding-bottom: 0px;
                 #currentTime {
-                    font-size: 115px; 
+                    font-size: 105px; 
                 }
                 #zone {
                     padding-left: 20px;

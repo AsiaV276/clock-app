@@ -64,8 +64,8 @@ body main #quote-container #refresh {
 }
 
 body main #quote-container .rotation {
-  -webkit-animation: rotation 1.5s;
-          animation: rotation 1.5s;
+  -webkit-animation: rotation 0.5s;
+          animation: rotation 0.5s;
 }
 
 @-webkit-keyframes rotation {
@@ -139,7 +139,7 @@ body main #time-box .time-text {
 }
 
 body main #time-box .time-text #currentTime {
-  font-size: 115px;
+  font-size: 105px;
 }
 
 body main #time-box .time-text #zone {
