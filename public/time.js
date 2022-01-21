@@ -14,16 +14,12 @@ document.getElementById('currentTime').innerHTML = fullTime;
 
 
 //fetch from api that gets current location, city and region
-const geoFindMe = async () => {
-    await fetch('https://extreme-ip-lookup.com/json/')
-    .then( res => res.json())
-    .then(response => {
-        //displays client location city and region
-        document.getElementById('location').innerText = 'IN ' + response.city + ', ' + response.region;
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+const geoFindMe = async (json) => {
+    const locationApiCall = json
+    const api_url = `${locationApiCall}`
+    const response = await fetch(api_url)
+    const jsonRes = await response.json()
+    document.getElementById('location').innerText = 'IN ' + jsonRes.city + ', ' + jsonRes.region;
 }
 
 
