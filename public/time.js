@@ -12,14 +12,33 @@ if(minutes < 10) {
 var fullTime = hour + ":" + minutes;
 document.getElementById('currentTime').innerHTML = fullTime;
 
+//getting coordinates
+var crd;
+function success(pos) {
+    crd = pos.coords;
+    //console.log('Your current position is:');
+    //console.log(`Latitude : ${crd.latitude}`);
+    //console.log(`Longitude: ${crd.longitude}`);
+}
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+navigator.geolocation.getCurrentPosition(success, error)
+
+  //console.log(crd);
 
 //fetch from api that gets current location, city and region
-const geoFindMe = async (json) => {
-    const locationApiCall = json
-    const api_url = `${locationApiCall}`
-    const response = await fetch(api_url)
+const geoFindMe = async () => {
+
+    //console.log(lat);
+    
+    const lat = 39.9676384 //crd.latitude
+    const lon = -75.1662007 //crd.longitude
+    const api_url_params = `${lat}/${lon}`
+    const response = await fetch(api_url_params)
     const jsonRes = await response.json()
-    document.getElementById('location').innerText = 'IN ' + jsonRes.city + ', ' + jsonRes.region;
+    const location = jsonRes.features[0].properties
+    document.getElementById('location').innerText = 'IN ' + location.suburb  + ', ' + location.city + ', ' + location.state_code;
 }
 
 
