@@ -13,33 +13,21 @@ var fullTime = hour + ":" + minutes;
 document.getElementById('currentTime').innerHTML = fullTime;
 
 //getting coordinates
-var crd;
-function success(pos) {
-    crd = pos.coords;
-    //console.log('Your current position is:');
-    //console.log(`Latitude : ${crd.latitude}`);
-    //console.log(`Longitude: ${crd.longitude}`);
-}
-function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-navigator.geolocation.getCurrentPosition(success, error)
-
-  //console.log(crd);
-
 //fetch from api that gets current location, city and region
-const geoFindMe = async () => {
-
-    //console.log(lat);
-    
-    const lat = 39.9676384 //crd.latitude
-    const lon = -75.1662007 //crd.longitude
+const geoFindMe = async (position) => {
+    const lat = position.coords.latitude //crd.latitude
+    const lon = position.coords.longitude //crd.longitude
     const api_url_params = `${lat}/${lon}`
     const response = await fetch(api_url_params)
     const jsonRes = await response.json()
     const location = jsonRes.features[0].properties
     document.getElementById('location').innerText = 'IN ' + location.suburb  + ', ' + location.city + ', ' + location.state_code;
 }
+const error = (err) => {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(geoFindMe)
 
 
 //fetch from api that gets timezone, day of week, day of year, weeknumber, and abbreviation
