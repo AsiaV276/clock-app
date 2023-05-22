@@ -21,7 +21,7 @@ const geoFindMe = async (position) => {
     const response = await fetch(api_url_params)
     const jsonRes = await response.json()
     const location = jsonRes.features[0].properties
-    document.getElementById('location').innerText = 'IN ' + location.suburb  + ', ' + location.city + ', ' + location.state_code;
+    document.getElementById('location').innerText = 'IN ' + location.district  + ', ' + location.city + ', ' + location.state_code;
 }
 const error = (err) => {
     console.warn(`ERROR(${err.code}): ${err.message}`);
